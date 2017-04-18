@@ -1,0 +1,67 @@
+{
+  "name": "coding-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "better-npm-run start",
+    "dev": "better-npm-run dev",
+    "test": "better-npm-run test",
+    "report": "istanbul cover src",
+    "lint": "eslint src",
+    "lint:fix": "npm run lint -- --fix"
+  },
+  "author": "",
+  "license": "ISC",
+  "betterScripts": {
+    "start": {
+      "command": "node bin/server",
+      "env": {
+        "NODE_ENV": "production",
+        "DEBUG": "app:*"
+      }
+    },
+    "dev": {
+      "command": "nodemon bin/server",
+      "env": {
+        "NODE_ENV": "development",
+        "DEBUG": "app:*"
+      }
+    },
+    "test": {
+      "command": "mocha test/all.spec.js",
+      "env": {
+        "NODE_ENV": "test"
+      }
+    }
+  },
+  "dependencies": {
+    "better-npm-run": "^0.0.15",
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "debug": "^2.6.3",
+    "express": "^4.13.4",
+    "express-hbs": "^1.0.4",
+    "express-session": "^1.15.2",
+    "handlebars": "^4.0.6",
+    "passport": "^0.3.2",
+    "passport-oauth2": "^1.4.0",
+    "request": "^2.81.0",
+    "session-memory-store": "^0.2.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "eslint": "^3.19.0",
+    "eslint-config-standard-trailing-commas": "^6.1.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "sinon": "^2.1.0",
+    "sinon-chai": "^2.9.0",
+    "standard": "^10.0.2",
+    "supertest": "^3.0.0"
+  }
+}

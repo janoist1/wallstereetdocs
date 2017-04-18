@@ -1,0 +1,5 @@
+{
+  "verbose": false,
+  "ext": "js json html hbs css",
+  "ignore": ["coverage", "tests"]
+}
