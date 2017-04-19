@@ -471,4 +471,8 @@ var DateFormat = {};
 // please check `dist/jquery.dateFormat.js` for a complete version
 (function($) {
   $.format = DateFormat.format;
+
+  $.fn.dateFormat = function(format) {
+    $(this).html($.format.date(this.html(), format))
+  }
 }(jQuery));

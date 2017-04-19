@@ -1,8 +1,4 @@
 (function($) {
-  $.fn.dateFormat = function(format) {
-    $(this).html($.format.date(this.html(), format))
-  }
-
   $.fn.enhanceProfile = function() {
     const profile = $(this)
 
