@@ -41,6 +41,7 @@ const config = {
       callbackURL: 'http://localhost:3000',
     },
     unauthenticated_url: '/login', // can be `/authenticate` too to skip login page
+    error_url: '/error',
   },
 
   // ----------------------------------

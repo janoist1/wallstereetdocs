@@ -1,14 +1,16 @@
 const request = require('request')
 const userProfiles = new Map()
 let config = {}
+let logger = console.log
 
 /**
  * Setup service
  *
  * @param cfg
  */
-function setup (cfg) {
+function setup (cfg, lgr) {
   config = cfg
+  logger = lgr
 }
 
 /**
@@ -21,11 +23,15 @@ function setup (cfg) {
  */
 function getProfile (token) {
   if (userProfiles.has(token)) {
+    logger('Returning user profile from cache')
+
     return Promise.resolve(userProfiles.get(token))
   }
 
   return obtainProfile(token)
     .then(profile => {
+      logger('Returning user profile from api')
+
       userProfiles.set(token, profile)
 
       return profile

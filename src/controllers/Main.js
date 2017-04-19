@@ -17,3 +17,11 @@ module.exports.dashboard = function (req, res) {
     layout: req.xhr ? undefined : 'layouts/default',
   })
 }
+
+module.exports.error = function (req, res) {
+  debug(`${req.originalUrl}`)
+
+  res.render('partials/main/error', {
+    layout: req.xhr ? undefined : 'layouts/default',
+  })
+}

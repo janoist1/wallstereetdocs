@@ -2,14 +2,16 @@ const passport = require('passport')
 const OAuth2Strategy = require('passport-oauth2')
 const userInfo = require('./UserInfo')
 let config = {}
+let logger = console.log
 
 /**
  * Setup service
  *
  * @param cfg
  */
-function setup (cfg) {
+function setup (cfg, lgr) {
   config = cfg
+  logger = lgr
 
   passport.serializeUser(function (user, done) {
     done(null, user)
@@ -22,16 +24,15 @@ function setup (cfg) {
   passport.use(new OAuth2Strategy(
     Object.assign({}, config.oauth2_strategy_options, {passReqToCallback: true}),
     function (request, accessToken, refreshToken, profile, done) {
-      console.log({accessToken, refreshToken, profile})
+      logger('Got user access token: ' + accessToken)
 
       userInfo
         .getProfile(accessToken)
         .then(userProfile => {
-          console.log({userProfile})
-          done(null, {})
+          done(null, userProfile)
         })
         .catch(error => {
-          console.log('ERRORja !!!!', error)
+          done(null, {error})
         })
     }
   ))

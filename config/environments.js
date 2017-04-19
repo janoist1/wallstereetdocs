@@ -5,14 +5,6 @@ module.exports = {
   // Overrides when NODE_ENV === 'development'
   // ======================================================
   development : config => ({
-    database: {
-      uri: 'sqlite://database.prod.sqlite',
-      options: {
-        logging: config.database.options.logging,
-        storage: dbOptions.development.storage,
-        dialect: dbOptions.development.dialect,
-      }
-    },
   }),
 
   // ======================================================
@@ -20,20 +12,22 @@ module.exports = {
   // ======================================================
   production : config => ({
 
-    // sample override of giphy api settings
-    giphy: {
-      apiKey: config.giphy.apiKey, // this should be replaced by the prod key
-      https: true,
-      timeout: 30*60,
+    // replace with prod values
+
+    auth: {
+      oauth2_strategy_options: {
+        authorizationURL: 'https://staging-auth.wallstreetdocs.com/oauth/authorize',
+        tokenURL: 'https://staging-auth.wallstreetdocs.com/oauth/token',
+        clientID: 'coding_test',
+        clientSecret: 'bwZm5XC6HTlr3fcdzRnD',
+        callbackURL: 'http://localhost:3000',
+      },
+      unauthenticated_url: '/login',
+      error_url: '/error',
     },
 
-    database: {
-      uri: 'sqlite://database.prod.sqlite',
-      options: {
-        logging: config.database.options.logging,
-        storage: dbOptions.production.storage,
-        dialect: dbOptions.production.dialect,
-      }
-    },
+    user_info: {
+      url: 'https://staging-auth.wallstreetdocs.com/oauth/userinfo',
+    }
   })
 }

@@ -1,11 +1,11 @@
 (function ($) {
-  const container = $('body > .container')
+  const content = $('body > .content')
   const navBar = $('.navbar button[aria-label="Toggle navigation"]')
 
   function loadPage(url) {
     $.get(url)
       .done(function (data) {
-        container.html(data)
+        updatePage(data)
       })
       .fail(function (err) {
         alert(err)
@@ -16,14 +16,33 @@
     return navBar.attr('aria-expanded') === "true"
   }
 
-  $('.nav-link').click(function () {
-    if (isNavBarOpen()) {
-      navBar.click()
+  function initNavigation() {
+    $('a:not(.external)').click(function () {
+      if (isNavBarOpen()) {
+        navBar.click()
+      }
+
+      loadPage(event.target.href)
+
+      return false
+    })
+  }
+
+  function updatePage(html) {
+    content.html(html)
+
+    const page = content.find('> div').attr('data-page')
+
+    console.log('PAGE:', page)
+
+    switch (page) {
+      case 'profile':
+        content.enhanceProfile()
+        break;
     }
+  }
 
-    loadPage(event.target.href)
-
-    return false
-  })
+  initNavigation()
+  updatePage()
 
 })(jQuery)
