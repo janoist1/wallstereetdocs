@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "better-npm-run start",
+    "start": "npm run build && better-npm-run start",
     "build": "webpack --config config/webpack.js",
     "dev": "better-npm-run dev",
     "test": "better-npm-run test",

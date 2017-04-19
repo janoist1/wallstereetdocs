@@ -1,7 +1,7 @@
 // the following assets need to be required somewhere in order to make webpack aware of them
-require('../assets/styles.css')
-require('./plugins/dateFormat')
-require('./plugins/enhanceProfile')
+import '../assets/styles.css'
+import './plugins/dateFormat'
+import './plugins/enhanceProfile'
 
 (function ($) {
   const content = $('body > .content')

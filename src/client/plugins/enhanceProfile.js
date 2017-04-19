@@ -1,6 +1,6 @@
 (function($) {
   $.fn.dateFormat = function(format) {
-    $(this).html(DateFormat.format.date(this.html(), format))
+    $(this).html($.format.date(this.html(), format))
   }
 
   $.fn.enhanceProfile = function() {
