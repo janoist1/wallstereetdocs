@@ -15,13 +15,12 @@ const config = {
   // ----------------------------------
   path_base: path.resolve(__dirname, '..'),
   dir_src: 'src',
-  dir_dist: 'dist',
+  dir_assets: 'src/assets',
+  dir_client: 'src/client',
   dir_public: 'public',
   dir_views: 'src/views',
   dir_partials: 'src/views/partials',
   dir_layouts: 'src/views/layouts',
-  // dir_server: 'server',
-  // dir_test: 'tests',
 
   // ----------------------------------
   // Server Configuration
@@ -63,7 +62,8 @@ function base () {
 config.paths = {
   base: base,
   src: base.bind(null, config.dir_src),
-  dist: base.bind(null, config.dir_dist),
+  assets: base.bind(null, config.dir_assets),
+  client: base.bind(null, config.dir_client),
   public: base.bind(null, config.dir_public),
   views: base.bind(null, config.dir_views),
   partials: base.bind(null, config.dir_partials),

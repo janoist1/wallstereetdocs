@@ -1,3 +1,8 @@
+// the following assets need to be required somewhere in order to make webpack aware of them
+require('../assets/styles.css')
+require('./plugins/dateFormat')
+require('./plugins/enhanceProfile')
+
 (function ($) {
   const content = $('body > .content')
   const navBar = $('.navbar button[aria-label="Toggle navigation"]')
@@ -44,5 +49,4 @@
 
   initNavigation()
   updatePage()
-
 })(jQuery)

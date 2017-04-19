@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "better-npm-run start",
+    "build": "webpack --config config/webpack.js",
     "dev": "better-npm-run dev",
     "test": "better-npm-run test",
     "report": "istanbul cover src/server.js",
@@ -43,8 +44,10 @@
     "express": "^4.13.4",
     "express-hbs": "^1.0.4",
     "express-session": "^1.15.2",
+    "extract-text-webpack-plugin": "^2.1.0",
     "handlebars": "^4.0.6",
     "handlebars-helper": "^0.0.12",
+    "jquery": "^3.2.1",
     "passport": "^0.3.2",
     "passport-oauth2": "^1.4.0",
     "request": "^2.81.0",
@@ -53,16 +56,19 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-as-promised": "^6.0.0",
+    "css-loader": "^0.28.0",
     "eslint": "^3.19.0",
     "eslint-config-standard-trailing-commas": "^6.1.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.2.0",
+    "node-sass": "^4.5.2",
     "nodemon": "^1.11.0",
     "sinon": "^2.1.0",
     "sinon-chai": "^2.9.0",
     "standard": "^10.0.2",
-    "supertest": "^3.0.0"
+    "supertest": "^3.0.0",
+    "webpack": "^2.4.1"
   }
 }

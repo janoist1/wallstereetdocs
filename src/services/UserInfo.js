@@ -7,6 +7,7 @@ let logger = console.log
  * Setup service
  *
  * @param cfg
+ * @param lgr
  */
 function setup (cfg, lgr) {
   config = cfg
